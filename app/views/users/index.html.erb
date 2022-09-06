@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<div class = "container">
+<h1>Users</h1>
+<br><br>
+<%#  <button id="b11"> check </button>  %>
+<%= link_to "New User", new_user_path , class: "btn btn-primary text-decoration-none text-white", id: 'new_user', remote: true %>
+data:{ bs_toggle: "modal" , bs_target: "#newUserModal" ,remote: true}
+<%# <a class="btn btn-primary text-decoration-none text-white" data-bs-toggle="modal" data-bs-target="#newUserModal" data-remote="true" href="/users/new">New User</a> %>
+<%# <%= link_to "Create User",new_user_path, class: "btn btn-danger"%> 
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= button_to "Delete" , user , method: :delete  , class: "btn btn-danger" %>
+</td> 
+                           
+        <%# <td><%= link_to 'Destroy', user, method: :delete, %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="container">
+   <!-- Modal -->
+  <div class="modal fade" id="newUserModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Create New User</h4>
+          <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+          
+        </div>
+        <div id="newUserForm">
+            <%= render 'form', user: @user %>
+        </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+</div>
+

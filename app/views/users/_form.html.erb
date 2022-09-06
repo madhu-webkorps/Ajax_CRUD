@@ -1,0 +1,33 @@
+
+<%= form_with(model: user , local: false) do |form| %>
+
+ <div class="modal-body">
+  
+
+ 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  
+ </div>
+ <div class = "modal-footer">
+   <button type = "button"  data-bs-dismiss="modal">close</button>
+    <div class="actions">
+      <%= form.submit class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+  
+  
+<% end %>

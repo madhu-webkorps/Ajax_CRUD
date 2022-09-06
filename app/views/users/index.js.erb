@@ -1,0 +1,11 @@
+$("#b11").click(function() {
+    let url = "/"    $.ajax({
+        url: url,
+        success: function(data) {
+            console.log('success')
+        },
+        error: function() {
+            console.log('failure')
+        }
+    });
+}

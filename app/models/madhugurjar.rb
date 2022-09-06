@@ -1,0 +1,2 @@
+class Madhugurjar < ApplicationRecord
+end
